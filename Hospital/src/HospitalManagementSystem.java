@@ -10,27 +10,27 @@ public class HospitalManagementSystem {
         Hospital hospital = new Hospital();
 
         while (true) {
-            System.out.println("1. Add patient");
-            System.out.println("2. View patients by department");
-            System.out.println("3. View all patients");
-            System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.println("1. Добавить пациента");
+            System.out.println("2. Показать пациентов по отделениям");
+            System.out.println("3. Показать всех пациентов");
+            System.out.println("4. Выход");
+            System.out.print("Введите номер: ");
             int choice = scanner.nextInt();
             scanner.nextLine();  // Consume newline
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter patient name: ");
+                    System.out.print("Введите имя пациента: ");
                     String name = scanner.nextLine();
-                    System.out.print("Enter patient age: ");
+                    System.out.print("Введите возраст: ");
                     int age = scanner.nextInt();
                     scanner.nextLine();  // Consume newline
-                    System.out.print("Enter patient department: ");
+                    System.out.print("Введите название отделения: ");
                     String department = scanner.nextLine();
                     hospital.addPatient(name, age, department);
                     break;
                 case 2:
-                    System.out.print("Enter department name: ");
+                    System.out.print("Введите название отделения: ");
                     department = scanner.nextLine();
                     List<Patient> patients = hospital.getPatientsByDepartment(department);
                     for (Patient patient : patients) {
@@ -41,11 +41,11 @@ public class HospitalManagementSystem {
                     hospital.printAllPatients();
                     break;
                 case 4:
-                    System.out.println("Exiting...");
+                    System.out.println("Выход...");
                     scanner.close();
                     return;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Неверное значение, попробуйте еще раз.");
             }
         }
     }
